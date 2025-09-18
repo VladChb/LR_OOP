@@ -68,30 +68,30 @@ namespace lr1_3
         string.IsNullOrWhiteSpace(textlast.Text) ||
         string.IsNullOrWhiteSpace(textprice.Text))
             {
-                MessageBox.Show("Будь ласка, заповніть всі поля!");
+                MessageBox.Show("Заповніть всі поля");
                 return;
             }
 
             if (!DateTime.TryParse(textfirst.Text, out DateTime FDate))
             {
-                MessageBox.Show("Невірний формат дати видачі!");
+                MessageBox.Show("Невірний формат дати видачі");
                 return;
             }
             if (!DateTime.TryParse(textlast.Text, out DateTime LDate))
             {
-                MessageBox.Show("Невірний формат дати закінчення!");
+                MessageBox.Show("Невірний формат дати закінчення");
                 return;
             }
             if (LDate <= FDate)
             {
-                MessageBox.Show("Дата закінчення не може бути раніше або дорівнювати даті видачі!");
+                MessageBox.Show("Дата закінчення не може бути раніше або дорівнювати даті видачі");
                 textlast.Focus();
                 return;
             }
 
             if (!decimal.TryParse(textprice.Text, out decimal price))
             {
-                MessageBox.Show("Ціна має бути числом!");
+                MessageBox.Show("Ціна має бути числом");
                 return;
             }
 
@@ -122,11 +122,11 @@ namespace lr1_3
                         writer.WriteLine($"{policy.Type}|{policy.Number}|{policy.Name}|{policy.FDate:dd.MM.yyyy}|{policy.LDate:dd.MM.yyyy}|{policy.Price}");
                     }
                 }
-                MessageBox.Show("Дані успішно збережено у файл!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Дані успішно збережено у файл", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Помилка при збереженні файлу: {ex.Message}", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Помилка при збереженні файлу: {ex.Message}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -136,7 +136,7 @@ namespace lr1_3
             {
                 if (!File.Exists(filePath))
                 {
-                    MessageBox.Show("Файл не знайдено!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Файл не знайдено", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -170,11 +170,11 @@ namespace lr1_3
                         }
                     }
                 }
-                MessageBox.Show("Дані успішно завантажено з файлу!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Дані успішно завантажено з файлу", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Помилка при читанні файлу: {ex.Message}", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Помилка при читанні файлу: {ex.Message}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -229,3 +229,4 @@ namespace lr1_3
         }
     }
 }
+
